@@ -1,0 +1,27 @@
+Sub final_stock()
+
+Dim Ticker As String
+
+Dim total_stocks_Volume As Double
+total_stocks = 0
+
+Dim summary_stocks_Row As Integer
+summary_stocks = 2
+
+For i = 2 To 201
+    If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+    stocks = Cells(i, 1).Value
+    yearly_change = yearly_change + Cells(i, 3).Value
+    total_stocks = total_stocks + Cells(i, 3).Value
+    Range("I" & total_stocks).Value = Ticker
+    Range("J" & summary_stocks).Value = summary_stocks
+    summary_stocks = summary_stocks + 1
+    total_stocks = 0
+     Else
+     total_stocks = total_stocks + Cells(i, 3).Value
+
+    End If
+
+  Next i
+
+End Sub
